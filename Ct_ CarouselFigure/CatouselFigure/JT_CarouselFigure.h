@@ -22,4 +22,10 @@
 -(void)InVisiblePage;
 /*设置pagecontroller*/
 -(void)SetPageControl:(UIPageControl*)Page;
+/*图片数组*/
+@property (nonatomic,strong) NSArray *PicArr;
+/**
+ 不使用PicArr初始化或者修改的时候调用重新设置轮播图片
+ */
+- (void)updatePicArr;
 @end

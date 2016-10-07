@@ -14,14 +14,16 @@
 @private CGFloat Height;    //获取控件高度
 @private CGFloat Width;     //获取控件宽度
 }
-@property (nonatomic,strong) NSArray *PicArr;       //获取图片数组
 @property (nonatomic,strong) UIPageControl *PageCtr;//设置点控制器
 @property (nonatomic,strong) NSTimer *Timer;        //设置计时器
 @property (nonatomic,strong) NSMutableArray *ImageViewArr;
 
 @end
 @implementation JT_CarouselFigure
-
+#pragma mark-   初始化
+/**
+ 初始化
+ */
 - (instancetype)initWithFrame:(CGRect)frame AndPicArr:(NSArray *)Pic
 {
     if (self = [super initWithFrame:frame]) {
@@ -46,6 +48,31 @@
     return self;
 }
 
+- (instancetype)initWithFrame:(CGRect)frame {
+    if (self = [super initWithFrame:frame]) {
+        Width = frame.size.width;
+        Height = frame.size.height;
+        self.showsVerticalScrollIndicator = NO;
+        self.showsHorizontalScrollIndicator = NO;
+        self.pagingEnabled = YES;
+        self.scrollEnabled = YES;
+        self.delegate = self;
+        UITapGestureRecognizer  *tap    =   [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(ShowBigPic)];
+        [self addGestureRecognizer:tap];
+    }
+    return self;
+}
+/**
+ 不使用初始化或者修改的时候调用重新设置轮播图片
+ */
+- (void)updatePicArr {
+    self.ImageViewArr   =   [NSMutableArray array];
+    self.contentSize = CGSizeMake(Width*(self.PicArr.count+2), Height);
+    self.contentOffset = CGPointMake(Width, 0);
+    self.OpenTimer = YES;
+    [self Timer];
+    [self InPutPic];
+}
 /*放入图片*/
 -(void)InPutPic
 {
@@ -57,6 +84,7 @@
     [self JudgeImageOrUrl:i];
 }
 
+#pragma mark-   <UIScrollDelegate>
 /*图片循环*/
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
@@ -73,7 +101,7 @@
 /*点的位置*/
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-//    NSLog([NSString stringWithFormat:@"%f/%f",self.contentOffset.x,Width]);
+    //    NSLog([NSString stringWithFormat:@"%f/%f",self.contentOffset.x,Width]);
     self.PageCtr.currentPage = (self.contentOffset.x/Width) -1 ;
     if(self.OpenTimer){
         self.Timer = [NSTimer timerWithTimeInterval:3 target:self selector:@selector(ChangeByTimer) userInfo:nil repeats:YES];
@@ -81,7 +109,7 @@
     }
 }
 
-#pragma mark - 图片缓存
+#pragma mark-   图片缓存
 /*判断为图片还是网址*/
 -(void)JudgeImageOrUrl:(NSInteger)i
 {
@@ -115,7 +143,7 @@
     PicCache *cache = [[PicCache alloc] initWithURL:url];
     return cache.imageV;
 }
-#pragma mark 计时器
+#pragma mark-   计时器
 
 /*
  ＊计时器动作
@@ -141,7 +169,10 @@
 {
     [self setContentOffset:CGPointMake(sender.currentPage*Width, 0) animated:YES];
 }
-#pragma mark    显示大图
+#pragma mark-   点击事件
+/**
+ 显示大图
+ */
 - (void)ShowBigPic {
     int index   =   self.contentOffset.x/Width;//定位到现在是什么位置
     ImageScaleView  *imageScale =   [[ImageScaleView alloc] initWithFrame:self.superview.bounds];
@@ -167,7 +198,7 @@
 -(UIPageControl *)PageCtr
 {
     if (!_PageCtr) {
-        _PageCtr = [[UIPageControl alloc] initWithFrame:CGRectMake(Width*0.7, Height-25, Width*0.3, 20)];
+        _PageCtr = [[UIPageControl alloc] initWithFrame:CGRectMake(self.frame.origin.x+Width*0.7, self.frame.origin.y+Height-25, Width*0.3, 20)];
         [_PageCtr setNumberOfPages:self.PicArr.count];
         _PageCtr.currentPage = 0;
         _PageCtr.backgroundColor = [UIColor clearColor];
