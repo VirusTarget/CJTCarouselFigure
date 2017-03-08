@@ -6,9 +6,9 @@
 //  Copyright © 2016年 CJT. All rights reserved.
 //
 
-#import "PicCache.h"
+#import "CJTPicCache.h"
 
-@implementation PicCache
+@implementation CJTPicCache
 
 -(instancetype)initWithURL:(NSURL*)URL{
     if (self = [super init]) {

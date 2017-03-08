@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PicCache : UIScrollView
+@interface CJTPicCache : UIScrollView
 {
 @private NSURL* __URL;  //获取地址
 }

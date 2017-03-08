@@ -7,7 +7,7 @@
 //
 
 #import "CJTCarouselFigure.h"
-#import "PicCache.h"
+#import "CJTPicCache.h"
 #import "CJTImageScaleView.h"
 @interface CJTCarouselFigure()
 {
@@ -114,7 +114,7 @@
 /*从缓存中读取文件*/
 -(UIImageView*)PicCache:(NSURL *)url
 {
-    PicCache *cache = [[PicCache alloc] initWithURL:url];
+    CJTPicCache *cache = [[CJTPicCache alloc] initWithURL:url];
     return cache.imageV;
 }
 #pragma mark-   计时器
