@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ImageScaleView : UIScrollView<UIScrollViewDelegate>
+@interface CJTImageScaleView : UIScrollView<UIScrollViewDelegate>
 
 @property (nonatomic, strong) UIImageView       *imageView;
 

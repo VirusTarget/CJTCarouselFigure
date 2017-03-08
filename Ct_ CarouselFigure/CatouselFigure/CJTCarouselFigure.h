@@ -11,21 +11,19 @@
 /**
  无限循环轮播图，可支持在线图片与本地图片混合使用
  */
-@interface JT_CarouselFigure : UIScrollView <UIScrollViewDelegate>
+@interface CJTCarouselFigure : UIScrollView <UIScrollViewDelegate>
 
 @property (nonatomic,assign) Boolean OpenTimer;
+
+/*图片数组*/
+@property (nonatomic,strong) NSArray *PicArr;
+
+#pragma mark- method
 /*通过图片或者URL数组创建控件*/
 - (instancetype)initWithFrame:(CGRect)frame AndPicArr:(NSArray *)Pic;
 /*关闭计时器*/
 - (void)StopTimer;
 /*关闭pagecontroller显示*/
 -(void)InVisiblePage;
-/*设置pagecontroller*/
--(void)SetPageControl:(UIPageControl*)Page;
-/*图片数组*/
-@property (nonatomic,strong) NSArray *PicArr;
-/**
- 不使用PicArr初始化或者修改的时候调用重新设置轮播图片
- */
-- (void)updatePicArr;
+
 @end

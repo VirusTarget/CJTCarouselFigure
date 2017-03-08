@@ -6,9 +6,9 @@
 //  Copyright © 2016年 微小时贷. All rights reserved.
 //
 
-#import "ImageScaleView.h"
+#import "CJTImageScaleView.h"
 
-@implementation ImageScaleView
+@implementation CJTImageScaleView
 
 - (instancetype)initWithFrame:(CGRect)frame
 {

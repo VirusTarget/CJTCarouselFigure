@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		134EE52C1D9E637300A898BF /* ImageScaleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 134EE5271D9E637300A898BF /* ImageScaleView.m */; };
-		134EE52D1D9E637300A898BF /* JT_CarouselFigure.m in Sources */ = {isa = PBXBuildFile; fileRef = 134EE5291D9E637300A898BF /* JT_CarouselFigure.m */; };
+		134EE52C1D9E637300A898BF /* CJTImageScaleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 134EE5271D9E637300A898BF /* CJTImageScaleView.m */; };
+		134EE52D1D9E637300A898BF /* CJTCarouselFigure.m in Sources */ = {isa = PBXBuildFile; fileRef = 134EE5291D9E637300A898BF /* CJTCarouselFigure.m */; };
 		134EE52E1D9E637300A898BF /* PicCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 134EE52B1D9E637300A898BF /* PicCache.m */; };
 		134EE5301D9E638000A898BF /* Default.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 134EE52F1D9E638000A898BF /* Default.jpg */; };
 		40688CA41CC494100031F934 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 40688CA31CC494100031F934 /* main.m */; };
@@ -39,10 +39,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		134EE5261D9E637300A898BF /* ImageScaleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageScaleView.h; sourceTree = "<group>"; };
-		134EE5271D9E637300A898BF /* ImageScaleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageScaleView.m; sourceTree = "<group>"; };
-		134EE5281D9E637300A898BF /* JT_CarouselFigure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JT_CarouselFigure.h; sourceTree = "<group>"; };
-		134EE5291D9E637300A898BF /* JT_CarouselFigure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JT_CarouselFigure.m; sourceTree = "<group>"; };
+		134EE5261D9E637300A898BF /* CJTImageScaleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJTImageScaleView.h; sourceTree = "<group>"; };
+		134EE5271D9E637300A898BF /* CJTImageScaleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJTImageScaleView.m; sourceTree = "<group>"; };
+		134EE5281D9E637300A898BF /* CJTCarouselFigure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJTCarouselFigure.h; sourceTree = "<group>"; };
+		134EE5291D9E637300A898BF /* CJTCarouselFigure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJTCarouselFigure.m; sourceTree = "<group>"; };
 		134EE52A1D9E637300A898BF /* PicCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PicCache.h; sourceTree = "<group>"; };
 		134EE52B1D9E637300A898BF /* PicCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PicCache.m; sourceTree = "<group>"; };
 		134EE52F1D9E638000A898BF /* Default.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Default.jpg; sourceTree = "<group>"; };
@@ -93,10 +93,10 @@
 			isa = PBXGroup;
 			children = (
 				134EE52F1D9E638000A898BF /* Default.jpg */,
-				134EE5261D9E637300A898BF /* ImageScaleView.h */,
-				134EE5271D9E637300A898BF /* ImageScaleView.m */,
-				134EE5281D9E637300A898BF /* JT_CarouselFigure.h */,
-				134EE5291D9E637300A898BF /* JT_CarouselFigure.m */,
+				134EE5261D9E637300A898BF /* CJTImageScaleView.h */,
+				134EE5271D9E637300A898BF /* CJTImageScaleView.m */,
+				134EE5281D9E637300A898BF /* CJTCarouselFigure.h */,
+				134EE5291D9E637300A898BF /* CJTCarouselFigure.m */,
 				134EE52A1D9E637300A898BF /* PicCache.h */,
 				134EE52B1D9E637300A898BF /* PicCache.m */,
 			);
@@ -228,7 +228,7 @@
 		40688C971CC4940F0031F934 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = CJT;
 				TargetAttributes = {
 					40688C9E1CC4940F0031F934 = {
@@ -299,9 +299,9 @@
 			files = (
 				40688CAA1CC494100031F934 /* ViewController.m in Sources */,
 				40688CA71CC494100031F934 /* AppDelegate.m in Sources */,
-				134EE52D1D9E637300A898BF /* JT_CarouselFigure.m in Sources */,
+				134EE52D1D9E637300A898BF /* CJTCarouselFigure.m in Sources */,
 				40688CA41CC494100031F934 /* main.m in Sources */,
-				134EE52C1D9E637300A898BF /* ImageScaleView.m in Sources */,
+				134EE52C1D9E637300A898BF /* CJTImageScaleView.m in Sources */,
 				134EE52E1D9E637300A898BF /* PicCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -371,8 +371,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -415,8 +417,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
