@@ -8,6 +8,9 @@
 
 #import "CJTPicCache.h"
 
+@interface CJTPicCache()
+@property (nonatomic, strong) NSMutableArray *urlArr;
+@end
 @implementation CJTPicCache
 
 -(instancetype)initWithURL:(NSURL*)URL{
@@ -45,6 +48,14 @@
 /*下载图片*/
 -(void)DownLoadPic
 {
+    if ([self.urlArr containsObject:__URL]) {//如果在下载线程中发现该图片正在下载，则5s后再重试
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self FindIfInCache];
+        });
+        return;
+    }
+    [self.urlArr addObject:__URL];
+    
     NSURLRequest *Request = [NSURLRequest requestWithURL:__URL];
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionDownloadTask *task = [session downloadTaskWithRequest:Request completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {
@@ -57,6 +68,7 @@
             NSString *str = [[__URL absoluteString] substringFromIndex:range.location+1];
             NSURL *docURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@",docDir,str]];
             
+            [self.urlArr removeObject:__URL];
             [fileManager moveItemAtURL:location toURL:docURL error:nil];
             [self FindIfInCache];//保存之后重新写入文件
         }

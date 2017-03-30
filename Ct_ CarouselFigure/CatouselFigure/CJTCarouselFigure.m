@@ -64,7 +64,9 @@
 /*图片循环*/
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    [self.Timer invalidate];
+    if (_Timer) {
+        [self.Timer invalidate];
+    }
     NSInteger PicCount = self.PicArr.count;
     if (self.contentOffset.x >= (PicCount+1)*Width) {//如果是最后一张则转到第一张
         self.contentOffset = CGPointMake(Width, 0);
@@ -78,6 +80,15 @@
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     self.PageCtr.currentPage = (self.contentOffset.x/Width) -1 ;
+    if(self.OpenTimer){
+        self.Timer = [NSTimer timerWithTimeInterval:3 target:self selector:@selector(ChangeByTimer) userInfo:nil repeats:YES];
+        [[NSRunLoop currentRunLoop] addTimer:_Timer forMode:NSRunLoopCommonModes];
+    }
+}
+
+-(void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
+{
+    self.PageCtr.currentPage = (self.contentOffset.x/Width) -1;
     if(self.OpenTimer){
         self.Timer = [NSTimer timerWithTimeInterval:3 target:self selector:@selector(ChangeByTimer) userInfo:nil repeats:YES];
         [[NSRunLoop currentRunLoop] addTimer:_Timer forMode:NSRunLoopCommonModes];
@@ -117,25 +128,6 @@
     CJTPicCache *cache = [[CJTPicCache alloc] initWithURL:url];
     return cache.imageV;
 }
-#pragma mark-   计时器
-
-/*
- ＊计时器动作
- *带动画的位移
- */
--(void)ChangeByTimer
-{
-    [self setContentOffset:CGPointMake(self.contentOffset.x+Width, 0) animated:YES];
-}
-
--(void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
-{
-    if(self.OpenTimer){
-        self.Timer = [NSTimer timerWithTimeInterval:3 target:self selector:@selector(ChangeByTimer) userInfo:nil repeats:YES];
-        [[NSRunLoop currentRunLoop] addTimer:_Timer forMode:NSRunLoopCommonModes];
-    }
-    self.PageCtr.currentPage = (self.contentOffset.x/Width) -1;
-}
 
 #pragma mark- event response
 /**
@@ -154,7 +146,16 @@
 {
     [self setContentOffset:CGPointMake(sender.currentPage*Width, 0) animated:YES];
 }
-#pragma mark - 其余事件
+
+/*
+ ＊计时器动作
+ *带动画的位移
+ */
+-(void)ChangeByTimer
+{
+    [self setContentOffset:CGPointMake(self.contentOffset.x+Width, 0) animated:YES];
+}
+
 /*关闭计时器*/
 -(void)StopTimer
 {
@@ -183,7 +184,6 @@
     self.contentOffset = CGPointMake(Width, 0);
     self.OpenTimer = YES;
     
-    [self addSubview:self.PageCtr];
     [self Timer];
     [self InPutPic];
 }
@@ -196,6 +196,7 @@
         _PageCtr.backgroundColor = [UIColor clearColor];
         
         [_PageCtr addTarget:self action:@selector(PageJump:) forControlEvents:UIControlEventTouchUpInside];
+        [self.superview addSubview:self.PageCtr];
     }
     return _PageCtr;
 }
