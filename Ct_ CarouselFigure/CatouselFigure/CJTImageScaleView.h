@@ -1,9 +1,9 @@
 //
 //  ImageScaleView.h
-//  Car-Loan
+//  CatourselFigure
 //
-//  Created by chenjintian on 16/9/12.
-//  Copyright © 2016年 微小时贷. All rights reserved.
+//  Created by virusKnight on 16/9/12.
+//  Copyright © 2016年 virusKnight. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

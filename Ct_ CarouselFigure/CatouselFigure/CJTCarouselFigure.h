@@ -2,8 +2,8 @@
 //  CarouselFigure1.h
 //  Ct_CarouselFigure
 //
-//  Created by CJT on 16/5/13.
-//  Copyright © 2016年 CJT. All rights reserved.
+//  Created by virusKnight on 16/5/13.
+//  Copyright © 2016年 virusKnight. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -13,17 +13,24 @@
  */
 @interface CJTCarouselFigure : UIScrollView <UIScrollViewDelegate>
 
-@property (nonatomic,assign) Boolean OpenTimer;
+/// 是否开启定时器
+@property (nonatomic,assign) Boolean openTimer;
 
-/*图片数组*/
-@property (nonatomic,strong) NSArray *PicArr;
+/// 图片数组，包含 UIImage 或 NSURL 对象
+@property (nonatomic,strong) NSArray *picArray;
 
 #pragma mark- method
-/*通过图片或者URL数组创建控件*/
-- (instancetype)initWithFrame:(CGRect)frame AndPicArr:(NSArray *)Pic;
-/*关闭计时器*/
-- (void)StopTimer;
-/*关闭pagecontroller显示*/
--(void)InVisiblePage;
+
+/// 初始化方法，接受一个frame和图片数组
+/// @param frame 控件的frame
+/// @param picArray 图片数组
+/// @return CJTCarouselFigure实例
+- (instancetype)initWithFrame:(CGRect)frame picArray:(NSArray *)Pic;
+
+/// 关闭计时器
+- (void)stopTimer;
+
+/// 关闭pagecontroller显示
+- (void)hidePageControl;
 
 @end

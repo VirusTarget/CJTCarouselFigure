@@ -9,8 +9,9 @@
 /* Begin PBXBuildFile section */
 		134EE52C1D9E637300A898BF /* CJTImageScaleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 134EE5271D9E637300A898BF /* CJTImageScaleView.m */; };
 		134EE52D1D9E637300A898BF /* CJTCarouselFigure.m in Sources */ = {isa = PBXBuildFile; fileRef = 134EE5291D9E637300A898BF /* CJTCarouselFigure.m */; };
-		134EE52E1D9E637300A898BF /* CJTPicCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 134EE52B1D9E637300A898BF /* CJTPicCache.m */; };
+		134EE52E1D9E637300A898BF /* VKCacheImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 134EE52B1D9E637300A898BF /* VKCacheImageView.m */; };
 		134EE5301D9E638000A898BF /* Default.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 134EE52F1D9E638000A898BF /* Default.jpg */; };
+		135E034C2D408B9A001CD25A /* VKImageCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 135E034B2D408B9A001CD25A /* VKImageCacheManager.m */; };
 		40688CA41CC494100031F934 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 40688CA31CC494100031F934 /* main.m */; };
 		40688CA71CC494100031F934 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 40688CA61CC494100031F934 /* AppDelegate.m */; };
 		40688CAA1CC494100031F934 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40688CA91CC494100031F934 /* ViewController.m */; };
@@ -43,9 +44,11 @@
 		134EE5271D9E637300A898BF /* CJTImageScaleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJTImageScaleView.m; sourceTree = "<group>"; };
 		134EE5281D9E637300A898BF /* CJTCarouselFigure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJTCarouselFigure.h; sourceTree = "<group>"; };
 		134EE5291D9E637300A898BF /* CJTCarouselFigure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJTCarouselFigure.m; sourceTree = "<group>"; };
-		134EE52A1D9E637300A898BF /* CJTPicCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJTPicCache.h; sourceTree = "<group>"; };
-		134EE52B1D9E637300A898BF /* CJTPicCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJTPicCache.m; sourceTree = "<group>"; };
+		134EE52A1D9E637300A898BF /* VKCacheImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKCacheImageView.h; sourceTree = "<group>"; };
+		134EE52B1D9E637300A898BF /* VKCacheImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKCacheImageView.m; sourceTree = "<group>"; };
 		134EE52F1D9E638000A898BF /* Default.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Default.jpg; sourceTree = "<group>"; };
+		135E034A2D408B9A001CD25A /* VKImageCacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKImageCacheManager.h; sourceTree = "<group>"; };
+		135E034B2D408B9A001CD25A /* VKImageCacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKImageCacheManager.m; sourceTree = "<group>"; };
 		40688C9F1CC4940F0031F934 /* Ct_CarouselFigure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ct_CarouselFigure.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40688CA31CC494100031F934 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		40688CA51CC494100031F934 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -97,8 +100,10 @@
 				134EE5271D9E637300A898BF /* CJTImageScaleView.m */,
 				134EE5281D9E637300A898BF /* CJTCarouselFigure.h */,
 				134EE5291D9E637300A898BF /* CJTCarouselFigure.m */,
-				134EE52A1D9E637300A898BF /* CJTPicCache.h */,
-				134EE52B1D9E637300A898BF /* CJTPicCache.m */,
+				134EE52A1D9E637300A898BF /* VKCacheImageView.h */,
+				134EE52B1D9E637300A898BF /* VKCacheImageView.m */,
+				135E034A2D408B9A001CD25A /* VKImageCacheManager.h */,
+				135E034B2D408B9A001CD25A /* VKImageCacheManager.m */,
 			);
 			path = CatouselFigure;
 			sourceTree = "<group>";
@@ -249,6 +254,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -300,9 +306,10 @@
 				40688CAA1CC494100031F934 /* ViewController.m in Sources */,
 				40688CA71CC494100031F934 /* AppDelegate.m in Sources */,
 				134EE52D1D9E637300A898BF /* CJTCarouselFigure.m in Sources */,
+				135E034C2D408B9A001CD25A /* VKImageCacheManager.m in Sources */,
 				40688CA41CC494100031F934 /* main.m in Sources */,
 				134EE52C1D9E637300A898BF /* CJTImageScaleView.m in Sources */,
-				134EE52E1D9E637300A898BF /* CJTPicCache.m in Sources */,
+				134EE52E1D9E637300A898BF /* VKCacheImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

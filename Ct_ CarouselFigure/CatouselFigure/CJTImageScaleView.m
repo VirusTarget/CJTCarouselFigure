@@ -1,9 +1,9 @@
 //
 //  ImageScaleView.m
-//  Car-Loan
+//  CatourselFigure
 //
-//  Created by chenjintian on 16/9/12.
-//  Copyright © 2016年 微小时贷. All rights reserved.
+//  Created by virusKnight on 16/9/12.
+//  Copyright © 2016年 virusKnight. All rights reserved.
 //
 
 #import "CJTImageScaleView.h"
@@ -13,11 +13,10 @@
 - (instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
-        
-        self.backgroundColor    =   [UIColor colorWithRed:219 green:219 blue:219 alpha:0.7];
-        self.delegate       =   self;
-        self.minimumZoomScale   =   0.1;
-        self.maximumZoomScale   =   3;
+        self.backgroundColor = [UIColor colorWithRed:219 green:219 blue:219 alpha:0.7];
+        self.delegate = self;
+        self.minimumZoomScale = 0.1;
+        self.maximumZoomScale = 3;
         
         UITapGestureRecognizer  *tap    =   [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissmask:)];
         [self addGestureRecognizer:tap];
@@ -33,13 +32,11 @@
 }
 
 - (void)createWithImage:(UIImage *)image {
-    
-    self.imageView  =   [[UIImageView alloc] initWithFrame:self.bounds];
-    self.imageView.contentMode  =   UIViewContentModeScaleAspectFit;
-    self.imageView.image        =   image;
+    self.imageView = [[UIImageView alloc] initWithFrame:self.bounds];
+    self.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    self.imageView.image = image;
     [self addSubview:self.imageView];
 }
-
 
 #pragma mark-   手势动作
 #pragma mark    单击手势
@@ -51,6 +48,7 @@
         [sender.view removeFromSuperview];
     }];
 }
+
 #pragma mark    双击手势
 - (void)doubleTap:(UITapGestureRecognizer*)sender {
     UIScrollView    *view    =   (UIScrollView*)sender.view;
@@ -62,6 +60,7 @@
             view.zoomScale  =   1.5;
     }];
 }
+
 #pragma mark-   <UIScrollViewDelegate>
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
     return self.imageView;
